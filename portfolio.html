@@ -870,4 +870,18 @@
       }
     });
   }, { threshold: 0.1 });
-  reveals.forEach(el => 
+  reveals.forEach(el => io.observe(el));
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.borderBottomColor =
+      window.scrollY > 50 ? 'rgba(90,130,255,0.2)' : 'rgba(90,130,255,0.12)';
+  });
+
+  // Fallback: force all reveals visible after 1s in case observer fails
+  setTimeout(() => {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }, 1000);
+</script>
+</body>
+</html>
