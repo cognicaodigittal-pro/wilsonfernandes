@@ -303,11 +303,94 @@
   }
 
   @media (max-width: 600px) {
-    .card { padding: 44px 32px; }
-    .name-row { flex-direction: column; align-items: flex-start; }
-    .photo-wrap img { width: 90px; height: 120px; }
-    .services { grid-template-columns: 1fr; }
-    .bottom-bar { flex-direction: column; gap: 20px; align-items: flex-start; }
+    /* Hide custom cursor on mobile */
+    .cursor, .cursor-ring { display: none; }
+    body { cursor: auto; }
+
+    .card-wrap { padding: 16px 12px; align-items: flex-start; }
+
+    .card {
+      padding: 36px 24px 32px;
+      border-radius: 4px;
+    }
+
+    /* Label smaller */
+    .label {
+      font-size: 7.5px;
+      margin-bottom: 28px;
+      letter-spacing: 0.25em;
+    }
+
+    /* Name row: image on top right, name on left */
+    .name-row {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .name {
+      font-size: clamp(32px, 10vw, 48px);
+      line-height: 1.05;
+    }
+
+    .role {
+      font-size: 8px;
+      letter-spacing: 0.18em;
+    }
+
+    /* Photo smaller on mobile */
+    .photo-wrap img {
+      width: 90px;
+      height: 120px;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .divider { margin-bottom: 20px; }
+
+    .bio {
+      font-size: 11px;
+      line-height: 1.85;
+      margin-bottom: 28px;
+    }
+
+    /* Services single column */
+    .services {
+      grid-template-columns: 1fr;
+      gap: 2px;
+      margin-bottom: 28px;
+    }
+    .service-item {
+      padding: 12px 16px;
+      font-size: 8px;
+    }
+
+    .tools-section { margin-bottom: 32px; }
+    .tools-label { font-size: 7px; }
+    .tool {
+      font-size: 8px;
+      padding: 5px 10px;
+    }
+
+    /* CTA full width */
+    .cta-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 14px 24px;
+      font-size: 8.5px;
+    }
+
+    .bottom-bar {
+      margin-top: 32px;
+      padding-top: 20px;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-start;
+    }
+    .contact-info { font-size: 8px; }
+    .monogram { font-size: 36px; }
   }
 </style>
 </head>
@@ -360,7 +443,7 @@
 
     <div class="cta">
       <a href="https://cognicaodigittal-pro.github.io/wilsonfernandes/portfolio" class="cta-btn">
-        <span>Ver Portfólio</span>
+        <span>Saiba mais</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M7 17L17 7M17 7H7M17 7v10"/>
         </svg>
