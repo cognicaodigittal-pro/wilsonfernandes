@@ -9,9 +9,9 @@
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --gold: #4a9eff;
-    --gold-light: #e8f4ff;
-    --gold-dark: #2563a8;
+    --blue: #4a9eff;
+    --blue-light: #e8f4ff;
+    --blue-dark: #2563a8;
     --bg: #000000;
     --bg2: #080c12;
     --bg3: #0d1220;
@@ -31,11 +31,10 @@
     cursor: none;
   }
 
-  /* Custom cursor */
   .cursor {
     position: fixed;
     width: 8px; height: 8px;
-    background: var(--gold);
+    background: var(--blue);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
@@ -52,7 +51,6 @@
     transition: all 0.18s ease;
   }
 
-  /* Noise overlay */
   body::before {
     content: '';
     position: fixed;
@@ -63,7 +61,6 @@
     opacity: 0.6;
   }
 
-  /* ─── CARD ─── */
   .card-wrap {
     min-height: 100vh;
     display: flex;
@@ -80,10 +77,7 @@
     border-radius: 2px;
     padding: 64px 72px;
     position: relative;
-    box-shadow:
-      0 0 0 1px rgba(74,158,255,0.06),
-      0 40px 120px rgba(0,0,0,0.8),
-      inset 0 1px 0 rgba(74,158,255,0.12);
+    box-shadow: 0 0 0 1px rgba(74,158,255,0.06), 0 40px 120px rgba(0,0,0,0.8), inset 0 1px 0 rgba(74,158,255,0.12);
     animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
@@ -92,24 +86,22 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* Corner ornaments */
   .card::before, .card::after {
     content: '';
     position: absolute;
     width: 28px; height: 28px;
-    border-color: var(--gold);
+    border-color: var(--blue);
     border-style: solid;
     opacity: 0.5;
   }
   .card::before { top: 20px; left: 20px; border-width: 1px 0 0 1px; }
   .card::after  { bottom: 20px; right: 20px; border-width: 0 1px 1px 0; }
 
-  /* Top label */
   .label {
     font-size: 9px;
     letter-spacing: 0.35em;
     text-transform: uppercase;
-    color: var(--gold-dark);
+    color: var(--blue-dark);
     margin-bottom: 48px;
     display: flex;
     align-items: center;
@@ -120,10 +112,17 @@
     content: '';
     flex: 1;
     height: 1px;
-    background: linear-gradient(90deg, var(--gold-dark), transparent);
+    background: linear-gradient(90deg, var(--blue-dark), transparent);
   }
 
-  /* Name */
+  .name-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 44px;
+  }
+
   .name {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(42px, 7vw, 68px);
@@ -135,24 +134,38 @@
   }
   .name em {
     font-style: italic;
-    color: var(--gold-light);
+    color: var(--blue-light);
   }
 
-  /* Role */
   .role {
     font-size: 10px;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 44px;
+    color: var(--blue);
+    margin-bottom: 0;
     animation: fadeUp 1s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
-  /* Divider */
+  /* Profile photo */
+  .photo-wrap {
+    flex-shrink: 0;
+    animation: fadeUp 1s 0.18s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .photo-wrap img {
+    width: 150px;
+    height: 190px;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 14px;
+    border: 1.5px solid var(--blue);
+    box-shadow: 0 0 0 4px rgba(74,158,255,0.1), 0 12px 40px rgba(0,0,0,0.6);
+    display: block;
+  }
+
   .divider {
     width: 48px;
     height: 1px;
-    background: var(--gold);
+    background: var(--blue);
     margin-bottom: 36px;
     animation: expandWidth 1s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
@@ -161,7 +174,6 @@
     to   { width: 48px; opacity: 1; }
   }
 
-  /* Bio */
   .bio {
     font-size: 12px;
     line-height: 2;
@@ -170,12 +182,8 @@
     max-width: 500px;
     animation: fadeUp 1s 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
-  .bio strong {
-    color: var(--text);
-    font-weight: 400;
-  }
+  .bio strong { color: var(--text); font-weight: 400; }
 
-  /* Services grid */
   .services {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -200,18 +208,14 @@
     position: absolute;
     left: 0; top: 0; bottom: 0;
     width: 2px;
-    background: var(--gold);
+    background: var(--blue);
     transform: scaleY(0);
     transform-origin: bottom;
     transition: transform 0.3s ease;
   }
-  .service-item:hover {
-    color: var(--gold-light);
-    background: rgba(74,158,255,0.08);
-  }
+  .service-item:hover { color: var(--blue-light); background: rgba(74,158,255,0.08); }
   .service-item:hover::before { transform: scaleY(1); }
 
-  /* Tools */
   .tools-section {
     margin-bottom: 52px;
     animation: fadeUp 1s 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -220,14 +224,10 @@
     font-size: 8px;
     letter-spacing: 0.35em;
     text-transform: uppercase;
-    color: var(--gold-dark);
+    color: var(--blue-dark);
     margin-bottom: 16px;
   }
-  .tools {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+  .tools { display: flex; flex-wrap: wrap; gap: 8px; }
   .tool {
     font-size: 9px;
     letter-spacing: 0.18em;
@@ -238,23 +238,16 @@
     border-radius: 1px;
     transition: all 0.25s ease;
   }
-  .tool:hover {
-    color: var(--gold);
-    border-color: rgba(74,158,255,0.4);
-    background: rgba(74,158,255,0.06);
-  }
+  .tool:hover { color: var(--blue); border-color: rgba(74,158,255,0.4); background: rgba(74,158,255,0.06); }
 
-  /* CTA */
-  .cta {
-    animation: fadeUp 1s 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
+  .cta { animation: fadeUp 1s 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
   .cta-btn {
     display: inline-flex;
     align-items: center;
     gap: 14px;
     text-decoration: none;
     color: var(--bg);
-    background: var(--gold);
+    background: var(--blue);
     padding: 16px 32px;
     font-family: 'DM Mono', monospace;
     font-size: 9px;
@@ -268,19 +261,15 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--gold-light);
+    background: var(--blue-light);
     transform: translateX(-101%);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .cta-btn:hover::before { transform: translateX(0); }
   .cta-btn span, .cta-btn svg { position: relative; z-index: 1; }
-  .cta-btn svg {
-    width: 14px; height: 14px;
-    transition: transform 0.3s ease;
-  }
+  .cta-btn svg { width: 14px; height: 14px; transition: transform 0.3s ease; }
   .cta-btn:hover svg { transform: translate(3px, -3px); }
 
-  /* Bottom bar */
   .bottom-bar {
     margin-top: 52px;
     padding-top: 28px;
@@ -290,12 +279,7 @@
     align-items: center;
     animation: fadeUp 1s 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
-  .contact-info {
-    font-size: 9px;
-    letter-spacing: 0.15em;
-    color: var(--text-muted);
-    line-height: 1.9;
-  }
+  .contact-info { font-size: 9px; letter-spacing: 0.15em; color: var(--text-muted); line-height: 1.9; }
   .monogram {
     font-family: 'Cormorant Garamond', serif;
     font-size: 48px;
@@ -306,7 +290,6 @@
     user-select: none;
   }
 
-  /* Shimmer line */
   .shimmer {
     position: absolute;
     top: 0; left: -100%;
@@ -321,6 +304,8 @@
 
   @media (max-width: 600px) {
     .card { padding: 44px 32px; }
+    .name-row { flex-direction: column; align-items: flex-start; }
+    .photo-wrap img { width: 90px; height: 120px; }
     .services { grid-template-columns: 1fr; }
     .bottom-bar { flex-direction: column; gap: 20px; align-items: flex-start; }
   }
@@ -337,15 +322,22 @@
 
     <div class="label">Portfolio & Apresentação</div>
 
-    <h1 class="name">Wilson<br><em>Fernandes</em></h1>
-    <p class="role">Web Designer Estratégico</p>
+    <div class="name-row">
+      <div>
+        <h1 class="name">Wilson<br><em>Fernandes</em></h1>
+        <p class="role">Web Designer Estratégico</p>
+      </div>
+      <div class="photo-wrap">
+        <img src="https://i.ibb.co/JRX0sqR3/willpro-1.png" alt="Wilson Fernandes">
+      </div>
+    </div>
 
     <div class="divider"></div>
 
     <p class="bio">
-      Especialista em criar <strong>experiências digitais</strong> que convertem. Desenvolvo sites, 
-      landing pages, páginas de vendas e de captura com foco em 
-      <strong>estratégia, usabilidade e resultados</strong> — unindo estética refinada 
+      Especialista em criar <strong>experiências digitais</strong> que convertem. Desenvolvo sites,
+      landing pages, páginas de vendas e de captura com foco em
+      <strong>estratégia, usabilidade e resultados</strong> — unindo estética refinada
       à jornada do usuário.
     </p>
 
@@ -404,7 +396,6 @@
     requestAnimationFrame(animateRing);
   })();
 
-  // Scale cursor on hoverable elements
   document.querySelectorAll('a, .service-item, .tool').forEach(el => {
     el.addEventListener('mouseenter', () => {
       cursor.style.transform = 'scale(2.5)';
